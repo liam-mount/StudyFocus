@@ -4,10 +4,8 @@ StudyFocus is a local macOS focus app. You make a time commitment, choose apps a
 websites, and the local engine enforces that commitment until it completes or you
 explicitly use Emergency unlock.
 
-The current package is `1.0.0-beta.1`. It is an unsigned beta: no Apple signing
-identity is available for this build. A public launch will require a signing and
-notarization setup as well as publication of the Chrome extension in the Chrome Web
-Store.
+The app is currently in `1.0.0-beta.1`. I am currently waiting on approval from the 
+Chrome Web System for the extension counterpart.
 
 ## Features
 
