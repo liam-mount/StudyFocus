@@ -1,0 +1,27 @@
+{
+  "name": "studyfocus", "version": "1.0.0-beta.1", "private": true,
+  "description": "A calm, committed focus app for macOS", "author": "StudyFocus",
+  "type": "module", "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build",
+    "native": "node scripts/native.mjs",
+    "start": "npm run build && npm run native && electron .",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "pack": "npm run build && npm run native && electron-builder --mac --dir",
+    "dist": "npm run build && npm run native && electron-builder --mac dmg zip",
+    "test:desktop": "node scripts/test-desktop.mjs"
+  },
+  "dependencies": {"react": "^19.1.0", "react-dom": "^19.1.0", "lucide-react": "^0.468.0"},
+  "devDependencies": {"@vitejs/plugin-react": "^4.3.4", "vite": "^6.0.7", "electron": "^41.0.0", "electron-builder": "^26.0.0", "typescript": "^5.9.0", "playwright": "^1.58.0"},
+  "build": {
+    "appId": "com.studyfocus.desktop", "productName": "StudyFocus", "asar": true,
+    "directories": {"output": "release"},
+    "files": ["dist/**", "desktop/**", "engine/**", "shared/**", "package.json"],
+    "extraResources": [{"from": "native/build/StudyFocusNative", "to": "StudyFocusNative"}, {"from":"chrome", "to":"chrome"}],
+    "extraFiles": [{"from":"native/com.studyfocus.engine.plist", "to":"Library/LaunchAgents/com.studyfocus.engine.plist"}],
+    "mac": {"category": "public.app-category.productivity", "target": ["dmg", "zip"], "icon": "native/build/icon.icns", "hardenedRuntime": true, "entitlements": "native/entitlements.plist", "entitlementsInherit": "native/entitlements.plist", "minimumSystemVersion": "13.0"},
+    "dmg": {"title":"StudyFocus", "contents":[{"x":150,"y":160,"type":"file"},{"x":430,"y":160,"type":"link","path":"/Applications"}]}
+  }
+}

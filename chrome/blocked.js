@@ -1,0 +1,3 @@
+document.getElementById('host').textContent=new URLSearchParams(location.search).get('host')||'Blocked website'
+async function tick(){const {policy}=await chrome.storage.local.get('policy');const end=policy?.session?.endsAt;const left=end?Math.max(0,end-Date.now()):0;const sec=Math.ceil(left/1000);document.getElementById('timer').textContent=left?`${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`:'Session ended';if(!left)document.getElementById('status').textContent='Your session has ended. Return to the website, or reconnect StudyFocus if this page remains.'}
+tick();setInterval(tick,1000)

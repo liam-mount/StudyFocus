@@ -1,0 +1,2 @@
+async function refresh(){const {status}=await chrome.storage.local.get('status');document.getElementById('heading').textContent=status?.connected?(status.phase==='work'?'Website blocking is on':'Connected to your Mac'):'Open StudyFocus';document.getElementById('status').textContent=status?.error||'Your website rules stay on this Mac. No browsing history is collected.'}
+document.getElementById('reconnect').onclick=async()=>{await chrome.runtime.sendMessage({type:'reconnect'});setTimeout(refresh,500)};refresh()

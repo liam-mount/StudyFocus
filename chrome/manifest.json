@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "StudyFocus — Website Blocker",
+  "version": "1.0.0",
+  "description": "Applies your StudyFocus commitments to Chrome. Local, private, and connected to your Mac app.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqGsXH1+irnpaK7uTDO1LcYE3JJ7w9GfB+pETt59kq6PYL0JC3EpQH6pHqHF5Z0oIHDb2uPZThVO1qPOJXljwZ25rLxtWPS435o4NVPmLZO2aokwf406pi+/BrlYVn4sN48ZLGtzTMeCxSr01SjH/ys7e9DaKgNn59yCfVuOfh+EukPcNDVrvB7OXg3xNfCrsRUc/IsxhlDJgmS/IEVYWPfrjlSsR58GpgyCh6rY3r/XWjDqEhnZGOi8tUYdK4P552uXYorLQvfAcptKxa+WLEt1VGkrTgJWFD6roAS41myjLIArCmdAFzdFvHl+iB7eYTyVKPoic1Y6DHIXIDmmngwIDAQAB",
+  "permissions": [
+    "declarativeNetRequest",
+    "nativeMessaging",
+    "storage",
+    "alarms",
+    "tabs",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "StudyFocus"
+  },
+  "incognito": "spanning",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html",
+        "blocked.js",
+        "extension.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+node_modules/
+dist/
+release/
+native/build/
+.DS_Store
+work/
+*.log
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.key
+*.mobileprovision
+# Local test outputs
+playwright-report/
+test-results/
