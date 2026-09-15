@@ -10,8 +10,7 @@ Chrome setup and macOS service registration include development and approval ste
 3. Open StudyFocus from Applications and complete the welcome screen.
 
 This beta does not have an Apple signing identity. macOS may show its standard
-security approval when the app is opened. A public release will add signing and
-notarization. Do not weaken macOS security settings to install the app.
+security approval when the app is opened.
 
 ## Start a focus commitment
 
